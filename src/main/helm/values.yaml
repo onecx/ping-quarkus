@@ -1,0 +1,18 @@
+name: "${project.artifactId}"
+
+image:
+  repository: "artefactsdigi.1000kit.org/1000kit/"
+  name: "${project.artifactId}"
+  tag: "${project.version}"
+  pullPolicy: Always
+
+domain:
+  external:
+    default_url: "apps.openshift2.1000kit.net"
+    expose: true
+    labels:
+      router: external
+
+route_annotations:
+  router.openshift.io/haproxy.health.check.interval: 30000ms
+

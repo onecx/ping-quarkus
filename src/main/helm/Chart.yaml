@@ -1,0 +1,6 @@
+apiVersion: v1
+description: A Helm chart for 1000kit ping quarkus
+name: ${project.artifactId}
+version: ${project.version}
+maintainers:
+  - name: tkit@tkit.org
