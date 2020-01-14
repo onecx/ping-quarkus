@@ -14,7 +14,7 @@ variables:
   DOCKER_DRIVER: overlay2
   OC_PROJECT: test
   SAMO_DOCKER_REPOSITORY: artefactsdigi.1000kit.org/1000kit
-  HELM_GIT_REPO_URL: https://gitlab-ci-token:${PIPELINE_GIT_TOKEN}@gitlab.com/lorislab/maven/repo.git
+  HELM_GIT_REPO_URL: https://gitlab-ci-token:${PIPELINE_GIT_TOKEN}@gitlab.com/1000kit/helm/helm-repository.git
 
 stages:
   - build
