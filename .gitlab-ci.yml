@@ -14,6 +14,7 @@ variables:
   DOCKER_DRIVER: overlay2
   OC_PROJECT: test
   SAMO_DOCKER_REPOSITORY: artefactsdigi.1000kit.org/1000kit
+  HELM_GIT_REPO_URL: https://gitlab-ci-token:${PIPELINE_GIT_TOKEN}@gitlab.com/lorislab/maven/repo.git
 
 stages:
   - build
@@ -63,11 +64,15 @@ helm:push:
   image: 1000kit/pipe-ci-maven:3.6.0-jdk-8-04
   tags:
     - aws
+  before_script:
+    - git clone $HELM_GIT_REPO_URL .repo
   script:
-    - helm repo add --password ${HELM_REPO_PWD} --username ${HELM_REPO_USER} 1000kit-helm-repo https://artefactsdigi.1000kit.org/repository/helm/
-    - helm dependency update target/helm/${CI_PROJECT_NAME}
-    - helm package target/helm/${CI_PROJECT_NAME}
-    - curl -is -u "${HELM_REPO_USER}:${HELM_REPO_PWD}" https://artefactsdigi.1000kit.org/repository/helm/ --upload-file *.tgz
+#    - helm repo add --password ${HELM_REPO_PWD} --username ${HELM_REPO_USER} 1000kit-helm-repo https://artefactsdigi.1000kit.org/repository/helm/
+#    - helm dependency update target/helm/${CI_PROJECT_NAME}
+    - helm package target/helm/${CI_PROJECT_NAME}    
+    - cp *.tgz .repo/
+    - cd .repo && git config user.email $GITLAB_USER_EMAIL && git add . && git commit -m "$CI_PROJECT_NAME $CI_COMMIT_REF_NAME" && git push
+#    - curl -is -u "${HELM_REPO_USER}:${HELM_REPO_PWD}" https://artefactsdigi.1000kit.org/repository/helm/ --upload-file *.tgz
   dependencies:
     - mvn:package
 
