@@ -6,6 +6,7 @@ cache:
     - .m2/repository/
 
 variables:
+  SAMO_VER: 1.11.0
   MAVEN_CLI_OPTS: "-s .scripts/.m2/gitlab-ci-maven.xml --batch-mode"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
   GIT_RESOURCE_URL: https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/1000kit/config/gitlab-ci-template.git
@@ -13,7 +14,6 @@ variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
   OC_PROJECT: test
-  SAMO_DOCKER_REPOSITORY: artefactsdigi.1000kit.org/1000kit
   HELM_GIT_REPO_URL: https://gitlab-ci-token:${PIPELINE_GIT_TOKEN}@gitlab.com/1000kit/helm/helm-repository.git
 
 stages:
@@ -37,9 +37,9 @@ mvn:package:
     - aws
   before_script:
     - git clone $GIT_RESOURCE_URL .scripts
-    - curl https://github.com/lorislab/samo/releases/download/0.12.0/samo -O -J -L && chmod +x samo
+    - curl https://github.com/lorislab/samo/releases/download/$SAMO_VER/samo_${SAMO_VER}_Linux_x86_64.tar.gz -O -J -L && tar xfz samo_${SAMO_VER}_Linux_x86_64.tar.gz samo && chmod +x samo
   script:
-    - ./samo maven set-hash
+    - ./samo maven set-build-version
     - mvn $MAVEN_CLI_OPTS clean package -Pnative
   artifacts: *artifacts_definition
 
@@ -54,8 +54,9 @@ docker:push:
     - tags
   script:
     - docker login -u $DOCKER_REPO_NEXUS_USER -p $DOCKER_REPO_NEXUS_PASS $DOCKER_REPO_NEXUS_URL
-    - ./samo docker build --no-latest
-    - ./samo docker push
+    - ./samo maven docker-build
+    - mvn $MAVEN_CLI_OPTS verify
+    - ./samo maven docker-push
   dependencies:
     - mvn:package
 
