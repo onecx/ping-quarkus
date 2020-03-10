@@ -55,7 +55,6 @@ docker:push:
   script:
     - docker login -u $DOCKER_REPO_NEXUS_USER -p $DOCKER_REPO_NEXUS_PASS $DOCKER_REPO_NEXUS_URL
     - ./samo maven docker-build
-    - mvn $MAVEN_CLI_OPTS verify
     - ./samo maven docker-push
   dependencies:
     - mvn:package
