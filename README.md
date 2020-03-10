@@ -1,4 +1,4 @@
-Update
+
 # Ping-quarkus
 
 Ping quarkus example application for deployment
