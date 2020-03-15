@@ -1,0 +1,78 @@
+image: quay.io/quarkus/centos-quarkus-maven:19.2.1
+
+cache:
+  key: ${CI_PROJECT_PATH_SLUG}
+  paths:
+    - .m2/repository/
+
+variables:
+  SAMO_VER: 1.12.0
+  MAVEN_CLI_OPTS: "-s .scripts/.m2/gitlab-ci-maven.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+  GIT_RESOURCE_URL: https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/1000kit/config/gitlab-ci-template.git
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  OC_PROJECT: test
+  HELM_GIT_REPO_URL: https://gitlab-ci-token:${PIPELINE_GIT_TOKEN}@gitlab.com/1000kit/helm/helm-repository.git
+
+stages:
+  - build
+  - publish
+
+##### artifacts template
+.artifacts_template:
+  artifacts: &artifacts_definition
+    name: "$CI_COMMIT_REF_SLUG"
+    expire_in: 8 hrs
+    paths:
+      - pom.xml
+      - samo
+      - target/*-runner
+      - target/helm
+
+mvn:package:
+  stage: build
+  tags:
+    - aws
+  before_script:
+    - git clone $GIT_RESOURCE_URL .scripts
+    - curl https://github.com/lorislab/samo/releases/download/$SAMO_VER/samo_${SAMO_VER}_Linux_x86_64.tar.gz -O -J -L && tar xfz samo_${SAMO_VER}_Linux_x86_64.tar.gz samo && chmod +x samo
+  script:
+    - ./samo maven set-build-version
+    - mvn $MAVEN_CLI_OPTS clean package -Pnative
+  artifacts: *artifacts_definition
+
+docker:push:
+  stage: publish
+  tags:
+    - aws
+  image: twalter/maven-docker
+  services:
+    - docker:dind
+  except:
+    - tags
+  script:
+    - docker login -u $DOCKER_REPO_NEXUS_USER -p $DOCKER_REPO_NEXUS_PASS $DOCKER_REPO_NEXUS_URL
+    - ./samo maven docker-build
+    - ./samo maven docker-push
+  dependencies:
+    - mvn:package
+
+helm:push:
+  stage: publish
+  image: 1000kit/pipe-ci-maven:3.6.0-jdk-8-04
+  tags:
+    - aws
+  before_script:
+    - git clone $HELM_GIT_REPO_URL .repo
+  script:
+#    - helm repo add --password ${HELM_REPO_PWD} --username ${HELM_REPO_USER} 1000kit-helm-repo https://artefactsdigi.1000kit.org/repository/helm/
+#    - helm dependency update target/helm/${CI_PROJECT_NAME}
+    - helm package target/helm/${CI_PROJECT_NAME}    
+    - cp *.tgz .repo/
+    - cd .repo && git config user.email $GITLAB_USER_EMAIL && git add . && git commit -m "$CI_PROJECT_NAME $CI_COMMIT_REF_NAME" && git push
+#    - curl -is -u "${HELM_REPO_USER}:${HELM_REPO_PWD}" https://artefactsdigi.1000kit.org/repository/helm/ --upload-file *.tgz
+  dependencies:
+    - mvn:package
+
