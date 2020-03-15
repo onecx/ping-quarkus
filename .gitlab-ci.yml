@@ -1,4 +1,4 @@
 include:
   - project: '1000kit/config/gitlab-ci-quarkus-template'
     ref: refactoring
-    file: '.gitlab-ci-quarkus-jvm.yml'
+    file: '.gitlab-ci-quarkus-native.yml'
