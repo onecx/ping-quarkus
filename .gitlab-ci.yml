@@ -1,3 +1,6 @@
+variables:
+  OC_PROJECT: test
+
 include:
   - project: '1000kit/config/gitlab-ci-quarkus-template'
     ref: refactoring
