@@ -43,7 +43,7 @@
         <dependency>
             <groupId>org.tkit.quarkus</groupId>
             <artifactId>tkit-quarkus-log</artifactId>
-            <version>0.2.0</version>
+            <version>0.5.0</version>
         </dependency>
         <!-- QUARKUS -->
         <dependency>
@@ -53,6 +53,24 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jsonb</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tkit.quarkus</groupId>
+            <artifactId>tkit-quarkus-test</artifactId>
+            <version>0.3.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     
@@ -84,6 +102,26 @@
                     <systemProperties>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemProperties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>native</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <phase>integration-test</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <systemPropertyVariables>
+                        <test.integration>true</test.integration>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

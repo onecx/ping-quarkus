@@ -1,0 +1,31 @@
+version: '2.4'
+
+services:
+  mocking-server:
+    container_name: mocking-server
+    image: artefactsdigi.1000kit.org/1000kit/mocking-server:latest
+    labels:
+      - "test.priority=100"
+      - "test.log=true"
+      - "test.Wait.forLogMessage.regex=.*verbose:.*\\s"
+      - "test.Wait.forLogMessage.times=1"
+    ports:
+      - "9000:8080"
+    networks:
+      - test
+  ping-quarkus:
+      container_name: ping-quarkus
+      image: artefactsdigi.1000kit.org/1000kit/ping-quarkus:latest
+      ports:
+          - "8080:8080"
+      labels:
+          - "test.unit=false"
+          - "test.priority=101"
+          - "test.image.pull=false"
+          - "test.Wait.forLogMessage.regex=.*Installed features:.*"
+          - "test.Wait.forLogMessage.times=1"
+          - "test.log=true"
+      networks:
+          - test
+networks:
+  test:
