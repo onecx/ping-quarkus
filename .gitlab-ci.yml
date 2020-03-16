@@ -1,7 +1,8 @@
-#variables:
-#  OC_PROJECT: test
+variables:
+  OC_PROJECT: ''
 
 include:
   - project: '1000kit/config/gitlab-ci-quarkus-template'
-    ref: refactoring
-    file: '.gitlab-ci-quarkus-native.yml'
+    ref: master
+    file: '.gitlab-ci-quarkus-jvm.yml'
+
