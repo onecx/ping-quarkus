@@ -1,25 +1,27 @@
 package org.tkit.quarkus.hello.test;
 
+import io.quarkus.test.common.QuarkusTestResource;
 import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeEach;
 import org.tkit.quarkus.test.docker.DockerComposeService;
+import org.tkit.quarkus.test.docker.DockerComposeTestResource;
+import org.tkit.quarkus.test.docker.DockerService;
 import org.tkit.quarkus.test.docker.DockerTestEnvironment;
 
+@QuarkusTestResource(DockerComposeTestResource.class)
 public class AbstractTest {
 
-    // load the docker compose file from src/test/resources/docker-compose.yml
-    public static DockerTestEnvironment ENVIRONMENT = new DockerTestEnvironment();
+    @DockerService("ping-quarkus")
+    protected DockerComposeService service;
 
-    //Configure the containers for the test
-    static {
+    @BeforeEach
+    public void before() {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        // start the docker test environment
-        ENVIRONMENT.start();
 
-        // update the rest assured port for the integration test
-        DockerComposeService service = ENVIRONMENT.getService("ping-quarkus");
         if (service != null) {
             RestAssured.port = service.getPort(8080);
             RestAssured.baseURI = "http://" + service.getHost();
         }
     }
+
 }

@@ -10,7 +10,7 @@
     <name>ping-quarkus</name>
 
     <properties>
-        <quarkus.version>1.2.1.Final</quarkus.version>
+        <quarkus.version>1.3.0.Final</quarkus.version>
         <surefire-plugin.version>2.22.1</surefire-plugin.version>
 
         <compiler-plugin.version>3.8.0</compiler-plugin.version>
@@ -48,6 +48,10 @@
         <!-- QUARKUS -->
         <dependency>
             <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
         <dependency>
@@ -69,7 +73,7 @@
         <dependency>
             <groupId>org.tkit.quarkus</groupId>
             <artifactId>tkit-quarkus-test</artifactId>
-            <version>0.3.0</version>
+            <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

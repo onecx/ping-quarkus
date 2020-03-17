@@ -21,7 +21,7 @@ services:
       labels:
           - "test.unit=false"
           - "test.priority=101"
-          - "test.image.pull=false"
+          - "test.image.pull=DEFAULT"
           - "test.Wait.forLogMessage.regex=.*Installed features:.*"
           - "test.Wait.forLogMessage.times=1"
           - "test.log=true"
