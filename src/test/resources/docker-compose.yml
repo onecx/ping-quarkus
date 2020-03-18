@@ -9,6 +9,7 @@ services:
       - "test.log=true"
       - "test.Wait.forLogMessage.regex=.*verbose:.*\\s"
       - "test.Wait.forLogMessage.times=1"
+      - "test.property.workorderclient/mp-rest/url=http://$${host:mocking-server}:$${port:mocking-server:8080}"
     ports:
       - "9000:8080"
     networks:
@@ -25,6 +26,7 @@ services:
           - "test.Wait.forLogMessage.regex=.*Installed features:.*"
           - "test.Wait.forLogMessage.times=1"
           - "test.log=true"
+          - "test.env.WORKORDERCLIENT_MP_REST_URL=http://mocking-server:8080"
       networks:
           - test
 networks:
