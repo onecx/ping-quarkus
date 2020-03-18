@@ -1,27 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: {{ .Values.app_name }}-deployment
   labels:
-    app: {{ .Release.Name }}
+    app: {{ .Values.app_name }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Values.app_name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ .Values.app_name }}
     spec:
-      {{- if .Values.image.pullSecret }}
-      imagePullSecrets:
-          - name: {{ .Values.image.pullSecret }}
-      {{- end }}            
       containers:
-        - name: {{ .Release.Name }}
-          image: {{ .Values.image.repository }}{{ .Values.image.name }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
-
-
