@@ -2,7 +2,7 @@ variables:
   OC_PROJECT: ''
 
 include:
-  - project: '1000kit/config/gitlab-ci-quarkus-template'
+  - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
     ref: master
     file: '.gitlab-ci-quarkus-native.yml'
 
