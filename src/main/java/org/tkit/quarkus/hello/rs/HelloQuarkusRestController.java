@@ -14,6 +14,7 @@ public class HelloQuarkusRestController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response hello() {
+        "ERROR"
         return Response.ok("Hello quarkus").build();
     }
 }
