@@ -1,8 +1,13 @@
 variables:
   OC_PROJECT: ''
 
+#include:
+#  - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
+#    ref: reports
+#    file: '.gitlab-ci-quarkus-native.yml'
+    
 include:
   - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
-    ref: reports
-    file: '.gitlab-ci-quarkus-native.yml'
+    ref: 'v2'
+    file: '.gitlab-ci-quarkus-jvm.yml'
 
