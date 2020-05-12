@@ -1,13 +1,9 @@
 variables:
-  OC_PROJECT: ''
+  DEPLOY: "false"
+  NATIVE: "true"
 
-#include:
-#  - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
-#    ref: reports
-#    file: '.gitlab-ci-quarkus-native.yml'
-    
 include:
   - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
-    ref: 'v2'
-    file: '.gitlab-ci-quarkus-jvm.yml'
+    ref: 'v3'
+    file: '.gitlab-ci-quarkus.yml'
 
