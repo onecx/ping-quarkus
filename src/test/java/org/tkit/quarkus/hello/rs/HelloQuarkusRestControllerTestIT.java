@@ -1,7 +1,7 @@
 package org.tkit.quarkus.hello.rs;
 
-import org.tkit.quarkus.test.docker.DockerComposeTest;
+import io.quarkus.test.junit.NativeImageTest;
 
-@DockerComposeTest
-public class HelloQuarkusRestControllerTestIT extends HelloQuarkusRestControllerT {
+@NativeImageTest
+public class HelloQuarkusRestControllerTestIT extends HelloQuarkusRestControllerTest {
 }
