@@ -142,10 +142,7 @@
 
     <profiles>
         <profile>
-		<id>native</id>
-		        <properties>
-            <quarkus.native.additional-build-args>-H:+RemoveSaturatedTypeFlows</quarkus.native.additional-build-args>
-        </properties>
+		    <id>native</id>
             <build>
                 <plugins>
                     <plugin>
