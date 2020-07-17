@@ -1,7 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.0-213
-WORKDIR /work/
-COPY target/*-runner /work/application
-RUN chmod 775 /work
+FROM 1000kit/ubi-quarkus:8.2
 
-EXPOSE 8080
-CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
+COPY target/lib/* /deployments/lib/
+COPY target/*-runner.jar /deployments/app.jar

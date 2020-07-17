@@ -1,9 +1,9 @@
 variables:
   DEPLOY: "false"
-  NATIVE: "true"
+  NATIVE: "false"
 
 include:
   - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
-    ref: 'v3'
+    ref: 'v3-release'
     file: '.gitlab-ci-quarkus.yml'
 

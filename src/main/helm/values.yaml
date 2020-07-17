@@ -1,6 +1,4 @@
-image:
-  repository: "artefactsdigi.1000kit.org"
-  name: "1000kit/${project.artifactId}"
-  tag: ${project.version}
-
-app_name: &app_name_definition "${project.artifactId}"
+quarkus:
+  image:
+    repository: "1000kit/${project.artifactId}"
+    tag: ${project.version}
