@@ -16,7 +16,7 @@ services:
       - test
   ping-quarkus:
       container_name: ping-quarkus
-      image: artefactsdigi.1000kit.org/1000kit/ping-quarkus:latest
+      image: ping-quarkus:latest
       ports:
           - "8080:8080"
       labels:
