@@ -5,5 +5,5 @@ variables:
 include:
   - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
     ref: 'v3-release'
-    file: '.gitlab-ci-quarkus.yml'
+    file: '.gitlab-ci-release.yml'
 
