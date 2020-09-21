@@ -1,4 +1,4 @@
-# Ping-quarkus
+# ping-quarkus
 
 Ping quarkus example application for deployment
 
