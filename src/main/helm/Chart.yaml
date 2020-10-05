@@ -13,6 +13,6 @@ maintainers:
 dependencies:
   # https://gitlab.com/1000kit/infra/helm/quarkus.git
   - name: quarkus
-    version: ^0
+    version: ^1
     repository: alias:1000kit
     alias: app
