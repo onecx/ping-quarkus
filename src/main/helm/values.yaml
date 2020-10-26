@@ -3,4 +3,4 @@ app:
     repository: "1000kit/${project.artifactId}"
     tag: ${project.version}
   db:
-    enabled: true
+    enabled: false
