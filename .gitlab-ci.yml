@@ -1,10 +1,9 @@
 variables:
-  DEPLOY: "false"
   NATIVE: "false"
   SAMO_MAVEN_DOCKER_RELEASE_REGISTRY: docker.io
 
 include:
   - project: '1000kit/infra/config/gitlab-ci-quarkus-template'
-    ref: 'v4'
+    ref: 'v4-2'
     file: '.gitlab-ci-quarkus.yml'
 
