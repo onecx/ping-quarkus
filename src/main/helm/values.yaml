@@ -1,6 +1,6 @@
 app:
   image:
-    repository: "onecxportal/${project.artifactId}"
+    repository: "1000kit/${project.artifactId}"
     tag: ${project.version}
   db:
     enabled: false
