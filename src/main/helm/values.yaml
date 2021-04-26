@@ -4,3 +4,7 @@ app:
     tag: ${project.version}
   db:
     enabled: false
+  livenessProbe:
+    url: /health
+  readinessProbe:
+    url: /health
