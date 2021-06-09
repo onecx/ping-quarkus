@@ -1,0 +1,10 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: ping-vault-secret
+  annotations:
+    avp.kubernetes.io/path: "secret/webapp/config"  
+type: Opaque
+stringData:
+  password: <password>
+  username: <username>
