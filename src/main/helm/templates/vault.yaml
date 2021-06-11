@@ -2,9 +2,7 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: {{ .Release.Name }}-vault-secret
-  annotations:
-    avp.kubernetes.io/path: "secret/webapp/config"  
 type: Opaque
 stringData:
-  password: <password>
-  username: <username>
+  password: <path:secret/webapp/config#password>
+  username: <path:secret/webapp/config#username>
