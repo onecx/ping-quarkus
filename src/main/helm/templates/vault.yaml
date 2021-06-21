@@ -1,8 +1,0 @@
-kind: Secret
-apiVersion: v1
-metadata:
-  name: {{ .Release.Name }}-vault-secret
-type: Opaque
-stringData:
-  password: <path:secret/webapp/config#password> 
-  username: <path:secret/webapp/config#username> 
