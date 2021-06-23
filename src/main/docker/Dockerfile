@@ -1,3 +1,4 @@
+FROM 1000kit/ubi-quarkus-jvm:8.2 as build
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
 
 ARG JAVA_PACKAGE=java-11-openjdk-headless
