@@ -18,8 +18,8 @@ dependencies:
     alias: app
 annotations:
   example: A list of annotations keyed by name (optional).
-  dependencies: |
-    app1: 1.0.0
-    app2: >=0.0.0-0
-    app3: ^3
+  dependencies: |-
+    app1: "1.0.0"
+    app2: ">=0.0.0-0"
+    app3: "^3"
       
