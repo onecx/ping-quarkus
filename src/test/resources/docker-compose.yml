@@ -1,19 +1,6 @@
 version: '2.4'
 
 services:
-  mocking-server:
-    container_name: mocking-server
-    image: artefactsdigi.1000kit.org/1000kit/mocking-server:latest
-    labels:
-      - "test.priority=100"
-      - "test.log=true"
-      - "test.Wait.forLogMessage.regex=.*verbose:.*\\s"
-      - "test.Wait.forLogMessage.times=1"
-      - "test.property.workorderclient/mp-rest/url=http://$${host:mocking-server}:$${port:mocking-server:8080}"
-    ports:
-      - "9000:8080"
-    networks:
-      - test
   ping-quarkus:
       container_name: ping-quarkus
       image: ping-quarkus:latest
