@@ -11,3 +11,4 @@ jobs:
   docker:
     uses: onecx/ci-java/.github/workflows/docker.yml@main
     needs: quarkus
+    secrets: inherit
