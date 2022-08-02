@@ -6,5 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  quarkus:
     uses: onecx/ci-java/.github/workflows/quarkus.yml@main
+  docker:
+    uses: onecx/ci-java/.github/workflows/docker.yml@main
