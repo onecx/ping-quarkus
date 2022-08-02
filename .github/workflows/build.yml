@@ -10,3 +10,4 @@ jobs:
     uses: onecx/ci-java/.github/workflows/quarkus.yml@main
   docker:
     uses: onecx/ci-java/.github/workflows/docker.yml@main
+    needs: quarkus
