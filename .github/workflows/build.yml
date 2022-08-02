@@ -1,0 +1,10 @@
+name: Build and release application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: onecx/ci-java/tree/main/.github/workflows/build.yml@main
