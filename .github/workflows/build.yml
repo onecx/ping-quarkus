@@ -12,3 +12,7 @@ jobs:
     uses: onecx/ci-java/.github/workflows/docker.yml@main
     needs: quarkus
     secrets: inherit
+  helm:
+    uses: onecx/ci-java/.github/workflows/helm.yml@main
+    needs: docker
+    secrets: inherit
