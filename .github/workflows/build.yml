@@ -1,10 +1,9 @@
-name: Build and release application
+name: Build
 
 on:
   push:
     branches:
       - main
-
 jobs:
   quarkus:
     uses: onecx/ci-java/.github/workflows/quarkus.yml@main
