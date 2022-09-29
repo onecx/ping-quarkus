@@ -1,6 +1,6 @@
 # ping-quarkus
 
-Ping quarkus example application for deployment
+Ping quarkus example application for deployment.
 
 # Update:
 
