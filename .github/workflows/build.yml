@@ -7,9 +7,9 @@ on:
       - 'fix/[0-9]+.[0-9]+.x'
 jobs:
   quarkus:
-    uses: onecx/ci-quarkus/.github/workflows/quarkus.yml@v1
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-build.yml@v1
     secrets: inherit
   helm:
-    uses: onecx/ci-common/.github/workflows/helm.yml@v1
+    uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
     needs: quarkus
     secrets: inherit
