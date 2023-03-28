@@ -13,6 +13,3 @@ jobs:
     uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
     needs: quarkus
     secrets: inherit
-    with:
-      helmDir: src/main/helm
-      helmAbsoluteDir: true
