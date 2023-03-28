@@ -6,31 +6,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.tkit.quarkus.app</groupId>
-        <artifactId>quarkus-app-parent</artifactId>
-        <version>[3.0.0,4.0.0)</version>
+        <groupId>io.github.onecx</groupId>
+        <artifactId>onecx-quarkus2-parent</artifactId>
+        <version>0.9.0</version>
     </parent>
 
     <groupId>org.tkit.quarkus</groupId>
     <artifactId>ping-quarkus</artifactId>
-    <version>0.20.0-SNAPSHOT</version>
+    <version>999-SNAPSHOT</version>
     <name>ping-quarkus</name>
-
 
     <dependencies>
         <!-- 1000kit -->
         <dependency>
-            <groupId>org.tkit.quarkus</groupId>
+            <groupId>org.tkit.quarkus.lib</groupId>
             <artifactId>tkit-quarkus-log-rs</artifactId>
         </dependency>
-        <!-- QUARKUS -->
+
+        <!-- Quarkus -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-jsonb</artifactId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
     </dependencies>
 

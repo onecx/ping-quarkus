@@ -1,4 +1,0 @@
-include:
-  - project: '1000kit/infra/ci/quarkus'
-    ref: 'v1'
-    file: 'ci.yml'

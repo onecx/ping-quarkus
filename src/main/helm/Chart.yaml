@@ -1,25 +1,19 @@
 apiVersion: v2
-name: ${project.artifactId}
-version: ${project.version}
-appVersion: ${project.version}
+name: ping-quarkus
+version: 999-SNAPSHOT
+appVersion: 999-SNAPSHOT
 description: Ping quarkus
 keywords:
   - ping quarkus
 sources:
-  - https://gitlab.com/1000kit/playground/ping-quarkus
+  - https://github.com/onecx/ping-quarkus
 maintainers:
   - name: Tkit Developer
     email: tkit_dev@1000kit.org
 dependencies:
-  # https://gitlab.com/1000kit/infra/helm/quarkus.git
   - name: quarkus
-    version: ^2
-    repository: alias:1000kit
     alias: app
-annotations:
-  example: A list of annotations keyed by name (optional).
-  dependencies: |-
-    app1: "1.0.0"
-    app2: ">=0.0.0-0"
-    app3: "^3"
+    version: ^0
+    repository: oci://ghcr.io/andrejpetras/charts
+
       

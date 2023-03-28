@@ -1,20 +1,25 @@
 package org.tkit.quarkus.hello.rs;
 
-
-import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.tkit.quarkus.hello.test.AbstractTest;
+import static io.restassured.RestAssured.given;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import static io.restassured.RestAssured.given;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
 
 @QuarkusTest
 @DisplayName("Example tests")
-public class HelloQuarkusRestControllerTest extends AbstractTest {
+public class HelloQuarkusRestControllerTest {
+
+    //Configure the containers for the test
+    static {
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+    }
 
     @Test
     @DisplayName("Hello test")

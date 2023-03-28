@@ -1,7 +1,7 @@
 package org.tkit.quarkus.hello.rs;
 
-import io.quarkus.test.junit.NativeImageTest;
+import io.quarkus.test.junit.QuarkusIntegrationTest;
 
-@NativeImageTest
+@QuarkusIntegrationTest
 public class HelloQuarkusRestControllerTestIT extends HelloQuarkusRestControllerTest {
 }
