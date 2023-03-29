@@ -7,9 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
 @Path("hello")
 @Consumes(MediaType.APPLICATION_JSON)
-public class HelloQuarkusRestController {
+public class HelloRestController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
