@@ -4,7 +4,10 @@ Ping quarkus example application for deployment.
 
 # Update:
 
-# Docker build
+## Docker build
+
+To build docker image use this command line:
 ```bash
-samo docker build -r artefactsdigi.1000kit.org/1000kit
+mvn clean package -Dquarkus.container-image.build=true -DskipTests
 ```
+
