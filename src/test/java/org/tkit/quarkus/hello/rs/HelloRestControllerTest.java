@@ -14,7 +14,7 @@ import io.restassured.RestAssured;
 
 @QuarkusTest
 @DisplayName("Example tests")
-public class HelloRestControllerTest {
+class HelloRestControllerTest {
 
     //Configure the containers for the test
     static {
@@ -23,7 +23,7 @@ public class HelloRestControllerTest {
 
     @Test
     @DisplayName("Hello test")
-    public void helloTest() {
+    void helloTest() {
         String tmp = given()
                 .when()
                 .contentType(MediaType.APPLICATION_JSON)
