@@ -14,7 +14,7 @@ import io.restassured.RestAssured;
 
 @QuarkusTest
 @DisplayName("Example tests")
-public class HelloQuarkusRestControllerTest {
+public class HelloRestControllerTest {
 
     //Configure the containers for the test
     static {
