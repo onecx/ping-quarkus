@@ -14,6 +14,12 @@ public class HelloRestController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response hello() {
+        String a = "a";
+        String b = "a";
+        if (a == b) {
+            System.out.println("c");
+        }
+
         return Response.ok("Hello quarkus").build();
     }
 }
