@@ -1,4 +1,4 @@
-name: create-fix-branch
+name: Create fix branch
 on:
   workflow_dispatch:
 jobs:
