@@ -2,6 +2,7 @@ name: Build Pull Request
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     branches:
       - 'main'
       - 'fix/[0-9]+.[0-9]+.x'
@@ -18,9 +19,13 @@ jobs:
   quarkus:
     uses: onecx/ci-quarkus/.github/workflows/quarkus-pr.yml@v1
     secrets: inherit
+  sonar:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-sonar.yml@v1
+    needs: quarkus
+    secrets: inherit
   helm:
     uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
-    needs: quarkus
+    needs: sonar
     secrets: inherit
     with:
       push: false

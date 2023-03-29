@@ -8,7 +8,7 @@
     <parent>
         <groupId>io.github.onecx</groupId>
         <artifactId>onecx-quarkus2-parent</artifactId>
-        <version>0.9.0</version>
+        <version>999-SNAPSHOT</version>
     </parent>
 
     <groupId>org.tkit.quarkus</groupId>
