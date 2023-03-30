@@ -32,6 +32,6 @@ class HelloRestControllerTest {
                 .statusCode(Response.Status.OK.getStatusCode())
                 .extract().body().asString();
 
-        Assertions.assertEquals("Hello quarkus", tmp);
+        Assertions.assertEquals("Hello quarkus?", tmp);
     }
 }
