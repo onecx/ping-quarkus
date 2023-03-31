@@ -16,7 +16,6 @@ import io.restassured.RestAssured;
 @DisplayName("Example tests")
 class HelloRestControllerTest {
 
-    //Configure the containers for the test
     static {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
