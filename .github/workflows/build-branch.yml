@@ -1,0 +1,23 @@
+name: Build feature branch
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+      - '!fix/[0-9]+.[0-9]+.x'
+
+jobs:
+  quarkus:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-pr.yml@v1
+    secrets: inherit
+  helm:
+    uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
+    needs: quarkus
+    secrets: inherit
+    with:
+      push: false
+  sonar:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-sonar.yml@v1
+    needs: quarkus
+    secrets: inherit
