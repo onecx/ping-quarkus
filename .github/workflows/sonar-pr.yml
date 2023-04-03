@@ -1,0 +1,13 @@
+name: Sonar Pull Request
+
+on:
+  workflow_run:
+    workflows: ["Build Pull Request"]
+    types:
+      - completed
+
+jobs:
+  sonar:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-sonar.yml@v1
+    needs: quarkus
+    secrets: inherit
