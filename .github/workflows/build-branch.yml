@@ -1,4 +1,4 @@
-name: Build feature branch
+name: Build Feature Branch
 
 on:
   push:
