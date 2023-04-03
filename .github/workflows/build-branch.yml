@@ -17,7 +17,3 @@ jobs:
     secrets: inherit
     with:
       push: false
-  sonar:
-    uses: onecx/ci-quarkus/.github/workflows/quarkus-sonar.yml@v1
-    needs: quarkus
-    secrets: inherit
