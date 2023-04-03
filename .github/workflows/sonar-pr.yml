@@ -6,6 +6,7 @@ on:
     types:
       - completed
 
+
 jobs:
   sonar:
     uses: onecx/ci-quarkus/.github/workflows/quarkus-pr-sonar.yml@v1
