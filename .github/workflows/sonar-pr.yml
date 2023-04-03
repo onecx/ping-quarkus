@@ -9,5 +9,4 @@ on:
 jobs:
   sonar:
     uses: onecx/ci-quarkus/.github/workflows/quarkus-sonar.yml@v1
-    needs: quarkus
     secrets: inherit
