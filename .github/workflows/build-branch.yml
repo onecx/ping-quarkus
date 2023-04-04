@@ -9,7 +9,7 @@ on:
 
 jobs:
   quarkus:
-    uses: onecx/ci-quarkus/.github/workflows/quarkus.yml@v1
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-build.yml@v1
     secrets: inherit
     with:
       push: false
