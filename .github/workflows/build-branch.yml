@@ -9,8 +9,10 @@ on:
 
 jobs:
   quarkus:
-    uses: onecx/ci-quarkus/.github/workflows/quarkus-pr.yml@v1
+    uses: onecx/ci-quarkus/.github/workflows/quarkus.yml@v1
     secrets: inherit
+    with:
+      push: false
   helm:
     uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
     needs: quarkus
