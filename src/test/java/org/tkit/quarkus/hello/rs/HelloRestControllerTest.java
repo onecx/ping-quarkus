@@ -21,7 +21,7 @@ class HelloRestControllerTest {
     }
 
     @Test
-    @DisplayName("Hello test")
+    @DisplayName("Hello rest service test")
     void helloTest() {
         String tmp = given()
                 .when()
