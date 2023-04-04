@@ -4,6 +4,6 @@ on:
   pull_request:
 
 jobs:
-  build-branch:
+  pr:
     uses: onecx/ci-quarkus/.github/workflows/build-pr.yml@v1
     secrets: inherit

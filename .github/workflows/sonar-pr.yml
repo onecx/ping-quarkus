@@ -7,6 +7,6 @@ on:
       - completed
 
 jobs:
-  sonar:
+  pr:
     uses: onecx/ci-quarkus/.github/workflows/quarkus-pr-sonar.yml@v1
     secrets: inherit
