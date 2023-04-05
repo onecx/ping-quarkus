@@ -4,6 +4,16 @@ on:
   pull_request:
 
 jobs:
-  pr:
-    uses: onecx/ci-quarkus/.github/workflows/build-pr.yml@v1
+  dependency-review:
+    uses: onecx/ci-common/.github/workflows/dependency-review.yml@v1
+    secrets: inherit
+  code-ql:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-codeql.yml@v1
+    secrets: inherit
+  quarkus:
+    uses: onecx/ci-quarkus/.github/workflows/quarkus-build.yml@v1
+    secrets: inherit
+  helm:
+    uses: onecx/ci-common/.github/workflows/helm-build.yml@v1
+    needs: quarkus
     secrets: inherit

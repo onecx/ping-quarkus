@@ -4,6 +4,14 @@ on:
     tags:
       - '**'
 jobs:
-  release:
-    uses: onecx/ci-quarkus/.github/workflows/build-release.yml@v1
+  docker:
+    uses: onecx/ci-common/.github/workflows/docker-release.yml@v1
+    secrets: inherit
+  helm:
+    uses: onecx/ci-common/.github/workflows/helm-release.yml@v1
+    needs: docker
+    secrets: inherit
+  changelog:
+    uses: onecx/ci-common/.github/workflows/generate-changelog.yml@v1
+    needs: helm
     secrets: inherit
