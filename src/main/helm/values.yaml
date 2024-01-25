@@ -1,10 +1,6 @@
 app:
   image:
-    repository: "1000kit/${project.artifactId}"
-    tag: 999-SNAPSHOT
+    repository: "onecx/ping-quarkus"
   db:
-    enabled: false
-  livenessProbe:
-    url: /health
-  readinessProbe:
-    url: /health
+    enabled: true
+
