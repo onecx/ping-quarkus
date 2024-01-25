@@ -22,8 +22,8 @@ public class Theme extends TraceableEntity {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "NAME2")
-    private String name2;
+//    @Column(name = "NAME2")
+//    private String name2;
 
     @TenantId
     @Column(name = "TENANT_ID")
