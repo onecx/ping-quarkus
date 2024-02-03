@@ -1,4 +1,5 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.2
+FROM ghcr.io/onecx/docker-quarkus-native:0.0.0
+
 WORKDIR /work/
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
