@@ -20,4 +20,4 @@ jobs:
     uses: onecx/ci-quarkus/.github/workflows/build.yml@f1
     secrets: inherit
     with:
-      native: false      
+      native: true      
