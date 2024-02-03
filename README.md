@@ -4,7 +4,7 @@ Ping quarkus is OneCx quarkus example application.
 
 # Update:
 
-* TODO: 
+* TODO:
 
 ## Docker build
 
