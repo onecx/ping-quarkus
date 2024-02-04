@@ -1,4 +1,4 @@
-FROM ghcr.io/onecx/docker-quarkus-native:0.0.0
+FROM ghcr.io/onecx/docker-quarkus-native:0.1.0
 
 WORKDIR /work/
 RUN chown 1001 /work \
