@@ -1,0 +1,26 @@
+----
+openapi: 3.0.3
+info:
+  title: ping-quarkus
+  description: ping-quarkus
+  version: "1.0"
+servers:
+  - url: http://ping-quarkus:8080/
+tags:
+  - name: themes
+paths:
+  /themes:
+      tags:
+        - themes
+      description: Find all themes
+      operationId: getThemes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              type: object
+                properties:
+                  modificationCount:
+                    format: int32
+                    type: integer
