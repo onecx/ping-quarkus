@@ -1,0 +1,5 @@
+
+:docker-registry: https://github.com/onecx/ping-quarkus/pkgs/container/ping-quarkus
+:helm-registry: https://github.com/onecx/ping-quarkus/pkgs/container/charts%2Fping-quarkus
+:properties-file: src/main/resources/application.properties
+:helm-file: src/main/helm/values.yaml

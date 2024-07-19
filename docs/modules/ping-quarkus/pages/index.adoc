@@ -1,0 +1,8 @@
+include::ping-quarkus-attributes.adoc[opts=optional]
+
+== ping-quarkus
+
+include::docs.adoc[opts=optional]
+
+
+include::ping-quarkus-docs.adoc[opts=optional]
