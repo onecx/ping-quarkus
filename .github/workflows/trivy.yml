@@ -10,3 +10,5 @@ jobs:
   pr:
     uses: onecx/ci-quarkus/.github/workflows/quarkus-trivy.yml@v1trivy
     secrets: inherit
+    with:
+      native: false
