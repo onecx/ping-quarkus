@@ -13,5 +13,18 @@ jobs:
     secrets: inherit
     with:
       native: false
+  trivy-test:
+    name: docker trivy scan manual
+    # runs-on: [ self-hosted, aws ]
+    runs-on: ubuntu-latest
+    env:
+      TRIVY_DEPENDENCY_TREE: 'true'
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'ghcr.io/onecx/ping-quarkus:0.25.0-rc.59'
+          severity: 'HIGH,CRITICAL'
+          format: table
 
 
