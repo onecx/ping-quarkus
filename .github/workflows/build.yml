@@ -12,6 +12,6 @@ jobs:
     uses: onecx/ci-quarkus/.github/workflows/build.yml@v1trivy
     secrets: inherit
     with:
-      native: false
+      native: true
 
 
