@@ -22,6 +22,7 @@ quarkus.hibernate-orm.metrics.enabled=true
 quarkus.liquibase.migrate-at-start=true
 quarkus.liquibase.validate-on-migrate=true
 tkit.dataimport.enabled=false
+%prod.quarkus.oidc-client.client-id=${quarkus.application.name}
 ----
 ====
 
