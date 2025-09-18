@@ -1,7 +1,7 @@
 apiVersion: v2
 name: ping-quarkus
-version: 999-SNAPSHOT
-appVersion: 999-SNAPSHOT
+version: 0.0.0
+appVersion: 0.0.0
 description: Ping quarkus
 keywords:
   - ping quarkus
@@ -13,7 +13,5 @@ maintainers:
 dependencies:
   - name: helm-quarkus-app
     alias: app
-    version: 0.27.0-rc.1
+    version: ^0
     repository: oci://ghcr.io/onecx/charts
-
-      
