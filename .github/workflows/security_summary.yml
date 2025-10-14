@@ -20,6 +20,9 @@ jobs:
       - name: Run security summary script
         run: bash security_summary.sh
 
+      - name: Show the security summary results to console
+        run: cat SECURITY_SUMMARY.md
+
       - name: Commit and push Markdown file
         run: |
           git config user.name "github-actions"
