@@ -12,12 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Authenticate GitHub CLI
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: gh auth setup-git
+      # - name: Authenticate GitHub CLI
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #   run: gh auth setup-git
 
       - name: Run security summary script
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: bash security_summary.sh
 
       - name: Show the security summary results to console
