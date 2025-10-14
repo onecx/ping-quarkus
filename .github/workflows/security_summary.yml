@@ -1,0 +1,29 @@
+name: Security Summary Report
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Authenticate GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: echo "$GH_TOKEN" | gh auth login --with-token
+
+      - name: Run security summary script
+        run: bash security_summary.sh
+
+      - name: Commit and push Markdown file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add SECURITY_SUMMARY.md
+          git commit -m "Update security summary"
+          git push
