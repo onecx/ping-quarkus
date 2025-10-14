@@ -9,7 +9,7 @@ echo "_Generated on $(date -u +"%Y-%m-%dT%H:%M:%SZ") UTC_" >> $OUTPUT
 echo >> $OUTPUT
 
 echo "Fetching repositories..."
-REPOS=$(gh repo list $ORG --public --json name -q '.[].name')
+REPOS=$(gh repo list $ORG --limit 1000 --public --json name -q '.[].name')
 
 for REPO in $REPOS; do
   echo "\n## Repository: $REPO" >> $OUTPUT
