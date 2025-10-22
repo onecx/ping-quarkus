@@ -14,6 +14,6 @@ public class HelloRestController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response hello() {
-        return Response.ok("Hello quarkus2?").build();
+        return Response.ok("Hello quarkus3?").build();
     }
 }

@@ -1,6 +1,5 @@
 app:
   image:
     repository: "onecx/ping-quarkus"
-  db:
-    enabled: true
+
 
