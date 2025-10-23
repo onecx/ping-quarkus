@@ -5,7 +5,7 @@ Ping quarkus is OneCx quarkus example application.
 # Update:
 
 * TODO:
- ** test auto-merge
+ ** test native multi-arch
 
 ## Docker build
 
