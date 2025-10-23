@@ -8,4 +8,5 @@ jobs:
     uses: onecx/ci-quarkus/.github/workflows/build-pr.yml@m1
     secrets: inherit
     with:
-      native: false
+      native: true
+      nativeMulti: true
