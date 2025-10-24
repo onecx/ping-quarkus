@@ -3,7 +3,7 @@ name: Security
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "5,10,15,20 10,11,12 * * *"
 
 jobs:
   security:
