@@ -1,0 +1,11 @@
+name: security
+
+on:
+  schedule:
+    # - cron: "0 1 * * 0"
+    - cron: "35 10 * * *"
+
+jobs:
+  release:
+    uses: onecx/ci-common/.github/workflows/security.yml@v1
+    secrets: inherit
