@@ -3,7 +3,7 @@ name: security
 on:
   schedule:
     # - cron: "0 1 * * 0"
-    - cron: "35 10 * * *"
+    - cron: "37 8 * * *"
 
 jobs:
   release:
