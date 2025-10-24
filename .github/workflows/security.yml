@@ -1,8 +1,9 @@
 name: Security
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "50 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   security:
